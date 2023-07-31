@@ -3,7 +3,7 @@
 
 Welcome to our Research Project - an endeavor to develop an advanced anti-cheat system capable of detecting a wide range of cheats and malicious activities. Our primary focus includes memory editing, debugging, certificates (and spoofing), injected modules, multi-boxing, OS spoofing, and more.
 
-# Project Objectives
+# Project Objectives:
 Develop a robust anti-cheat solution to protect our gaming platform from various cheating methods and ensure a fair and secure gaming environment.
 Implement advanced techniques, including code obfuscation, runtime unpacking, and hashing of loaded DLLs, to make reverse engineering and memory manipulation challenging for potential cheaters.
 Employ a network heartbeat mechanism to validate the integrity of client-side code, detect tampering attempts, and ensure clients execute only authorized code.
@@ -11,7 +11,7 @@ Pursue cutting-edge methods not publicly known to increase the effectiveness of 
 Project Scope
 Please note that this project serves as an educational exploration and is not intended for commercial use. We acknowledge that anti-cheat solutions are a dynamic field, and this is a basic example. In a production environment, we would expand the range of detection methods significantly, adopting a strategic approach to identify user patching and byte writing attempts.
 
-# Key Features
+# Key Features:
 To achieve our objectives, we plan to include the following features:
 
 **Code Obfuscation and Runtime Shellcode:** Develop routines to obfuscate sections of the program's code at runtime and utilize shellcode to unpack itself and execute a payload. This technique adds a layer of complexity for potential attackers.
