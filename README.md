@@ -1,70 +1,29 @@
-# KsDumper-11
-https://user-images.githubusercontent.com/78676320/213967527-ba0d435d-9d92-467d-bd9f-4e85f947dfa0.mp4
+# Research Project: Advanced Anti-Cheat Implementation
+![screenshot1](https://assetstorev1-prd-cdn.unity3d.com/key-image/ab7fe5c8-3a1b-4f0c-8ce3-7e37a896cb25.jpg)
 
-## Whats new v1.2
-+ KsDumper will now try and start the driver using the default kdu exploit provider #1 (RTCore64.sys)
-+ If the default provider does not work, KsDumper will scan all kdu providers and save each one that works into a list.
-+ Anytime kdu loads and it detects a saved providers list, it will try to load the KsDumper driver using each saved provider until one works.
-+ This technique should increase the amount of systems that the driver will be able to be loaded on. 
+Welcome to our Research Project - an endeavor to develop an advanced anti-cheat system capable of detecting a wide range of cheats and malicious activities. Our primary focus includes memory editing, debugging, certificates (and spoofing), injected modules, multi-boxing, OS spoofing, and more.
 
-## Support
-You can join the official KsDumper 11 discord server where I will be managing ongoing issues. 
-I am starting to see multiple people who's system the Rtcore64 exploit fails to work on.
-For those of you who find that ksDumper won't start on their system, please join the server and post your logs in the support channel. 
-Please keep in mind that until others volunteer to help in development of this tool, I am only one person with a finite amount of knowledge. 
-https://discord.gg/6kfWU3Ckya
+# Project Objectives
+Develop a robust anti-cheat solution to protect our gaming platform from various cheating methods and ensure a fair and secure gaming environment.
+Implement advanced techniques, including code obfuscation, runtime unpacking, and hashing of loaded DLLs, to make reverse engineering and memory manipulation challenging for potential cheaters.
+Employ a network heartbeat mechanism to validate the integrity of client-side code, detect tampering attempts, and ensure clients execute only authorized code.
+Pursue cutting-edge methods not publicly known to increase the effectiveness of our anti-cheat measures.
+Project Scope
+Please note that this project serves as an educational exploration and is not intended for commercial use. We acknowledge that anti-cheat solutions are a dynamic field, and this is a basic example. In a production environment, we would expand the range of detection methods significantly, adopting a strategic approach to identify user patching and byte writing attempts.
 
-## Features
-- Auto detection of working kdu exploit providers.
-- Auto dumping of selected exe.
-- Unloading the KsDumper kernel driver is now supported! An option was added to unload on program exit, or system shutdown/restart.
-- Splash screen for when driver is being loaded
-- Auto Refresh (every 100ms)
-- Suspend, resume, kill process
-- Dump any process main module using a kernel driver (both x86 and x64)
-- Rebuild PE32/PE64 header and sections
-- ^ This can be defeated by stripping pe headers. Once pe headers are stripped, it cant dump.
-- Works on protected system processes & processes with stripped handles (anti-cheats)
-- Works on Windows 11, it doesnt crash anymore!
-![Dev Channel Insider Build Win 11 Ksdumper](https://cdn.discordapp.com/attachments/1022996250037076047/1066538037154152548/image.png)
+# Key Features
+To achieve our objectives, we plan to include the following features:
 
-**Note**: Import table isn't rebuilt.
+**Code Obfuscation and Runtime Shellcode:** Develop routines to obfuscate sections of the program's code at runtime and utilize shellcode to unpack itself and execute a payload. This technique adds a layer of complexity for potential attackers.
 
-## Usage
-The old way of loading the unsigned ksDumper.sys kernel driver was to use the capcom exploit to map it, this got patched in windows 11.
-This one loads the driver with Kernel Driver Utility, or KDU for short. 
+**DLL Hashing for Injection Detection:** Implement a mechanism to hash all loaded DLLs and detect DLL injection or hijacking attempts, ensuring the integrity of the code execution environment.
 
-All driver loading is now automated, The splash screen is done, and the driver loader log now works!
-If the splash screen shuts down saying it failed to start the driver, please post the log file as an issue on the repo.
+**Network Heartbeat with Payload:** Utilize a network heartbeat mechanism to send code section hashes and secret keys to the server periodically. This ensures that no unauthorized memory tampering occurs and validates that the client is executing authorized code.
 
-**Note2**: Even though it can dump both x86 & x64 processes, this has to run on x64 Windows.
+**Advanced, Unpublished Techniques:** Investigate and incorporate cutting-edge techniques not publicly known to increase the difficulty of emulation and cheating attempts.
 
-## Disclaimer
-The new kdu provider scanner will sometimes crash windows with a BSOD when a provider goes bad loading the KsDumper driver. 
-In the event windows does crash while ksdumper is scanning for providers, just restart and rerun KsDUmper. 
-It will pickup where it left off scanning and skip the provider that just crashed it. The presence of Scanning.txt is what tells you of KsDumper was in the middle of a provider scan that it has to finish. 
+**Challenge-Response Protocol:** Implement a server-authenticated system with a challenge-response protocol. Each client must generate unique secret keys in response to server requests, ensuring non-repudiation and encouraging code execution on the client-side.
 
-Due to the nature of how KDU works to map the kernel driver, it is unknown if the system you run this on 
-will have a exploitable driver according to kdu providers.
-If you try to boot KsDumper 11 and it fails to start the driver, trying again as administrator.
-If it still fails post the log. There is a manualloader.bat you can try as well to see the output directly. 
-I will be working on making a selector that will get the correct provider for your system, or detect if none are available.
 
-This project has been made available for informational and educational purposes only.
-Considering the nature of this project, it is highly recommended to run it in a `Virtual Environment`. I am not responsible for any crash or damage that could happen to your system.
 
-**Important**: This tool makes no attempt at hiding itself. If you target protected games, the anti-cheat might flag this as a cheat and ban you after a while. Use a `Virtual Environment` !
-
-## References
-- https://github.com/EquiFox/KsDumper
-- https://github.com/hfiref0x/KDU
-- https://github.com/not-wlan/drvmap
-- https://github.com/Zer0Mem0ry/KernelBhop
-- https://github.com/NtQuery/Scylla/
-- http://terminus.rewolf.pl/terminus/
-- https://www.unknowncheats.me/
-
-## Compile Yourself
-- Requires Visual Studio 2022 (or 2019 for compiling the driver)
-- Requires .NET 4.6.1
-- Window Driver Framework (WDK)
+**© 2023 ! XZNX 5. All rights reserved.**
